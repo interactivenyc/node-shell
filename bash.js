@@ -17,7 +17,13 @@ process.stdin.on('data', (data) => {
     	ls();
     } else if (cmd.substring(0,3) === 'cat') {
         //debugger;
-        cat(cmd.split(' ')[1]);
+        let file = cmd.split(' ')[1];
+        if (file) {
+            cat(file)
+        } else {
+            process.stdout.write('you must supply a FILENAME with the cat command')
+        }
+        
         //console.log('cat: ', cmd);
 
         
